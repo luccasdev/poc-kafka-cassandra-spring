@@ -53,7 +53,14 @@
             </exclusions>
         </dependency>
     </dependencies>
-
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <activatedProperties>local</activatedProperties>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
