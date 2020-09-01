@@ -1,7 +1,7 @@
 package dev.luccas.ordermanager;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.luccas.ordermanager.controller.service.OrderService;
+import dev.luccas.ordermanager.service.OrderService;
 import dev.luccas.ordermanager.controller.v1.OrderController;
 import dev.luccas.ordermanager.model.Order;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package dev.luccas.ordermanager.controller.v1;
 
 
-import dev.luccas.ordermanager.controller.service.OrderService;
+import dev.luccas.ordermanager.service.OrderService;
 import dev.luccas.ordermanager.model.Order;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

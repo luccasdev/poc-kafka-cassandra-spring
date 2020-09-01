@@ -1,4 +1,4 @@
-package dev.luccas.ordermanager.controller.service;
+package dev.luccas.ordermanager.service;
 
 import dev.luccas.ordermanager.model.Order;
 import dev.luccas.ordermanager.repository.OrderRepository;
