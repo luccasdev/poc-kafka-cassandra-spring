@@ -16,7 +16,7 @@ public class OrderConsumer {
         log.info("Order Title: " + consumerRecord.value().getTitle());
         log.info("key: " + consumerRecord.key());
         log.info("Headers: " + consumerRecord.headers());
-        log.info("Partion: " + consumerRecord.partition());
+        log.info("Partition: " + consumerRecord.partition());
     }
 
 }
