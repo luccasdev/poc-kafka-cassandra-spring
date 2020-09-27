@@ -16,6 +16,7 @@ public class OrderMapper {
             return new OrderDto();
         return OrderDto.builder()
                 .title(entity.getTitle())
+                .id(entity.getId())
                 .description(entity.getDescription())
                 .build();
     }
