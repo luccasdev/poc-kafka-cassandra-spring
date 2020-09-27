@@ -111,6 +111,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
+    "id": "18b57f64-2654-4084-97e9-d4b565e4abb2",
     "title": "Big Mac",
     "description": "Lanche do McDonalds :)"
 }
