@@ -33,8 +33,7 @@ public class OrderController {
 
     @PostMapping
     public OrderDto create(@RequestBody OrderDto orderDto) {
-        this.orderService.send(OrderMapper.dtoToEntity(orderDto));
-        return orderDto;
+        return OrderMapper.entityToDto(this.orderService.send(OrderMapper.dtoToEntity(orderDto)));
     }
 }
 

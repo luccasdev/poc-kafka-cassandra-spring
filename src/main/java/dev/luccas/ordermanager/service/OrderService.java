@@ -40,8 +40,9 @@ public class OrderService {
         return this.orderRepository.save(order);
     }
 
-    public void send(Order order) {
+    public Order send(Order order) {
         kafkaTemplate.send(ORDER_TOPIC, UUID.randomUUID().toString(), order);
+        return order;
     }
 
     public void send(Order order, String key) {
