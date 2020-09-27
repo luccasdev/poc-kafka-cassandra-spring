@@ -14,8 +14,6 @@ import java.util.UUID;
 @Builder
 public class OrderDto {
 
-    private UUID id;
-
     private String title;
 
     private String description;

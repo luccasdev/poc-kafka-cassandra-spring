@@ -3,10 +3,8 @@ package dev.luccas.ordermanager.controller.v1;
 
 import dev.luccas.ordermanager.service.OrderService;
 import dev.luccas.ordermanager.model.Order;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,10 +15,15 @@ import java.util.stream.Collectors;
 public class OrderController {
 
 
+    private static final String ORDER_TOPIC = "order";
+
     private final OrderService orderService;
 
-    public OrderController(OrderService orderService) {
+    private final KafkaTemplate<String, Order> kafkaTemplate;
+
+    public OrderController(OrderService orderService, KafkaTemplate<String, Order> kafkaTemplate) {
         this.orderService = orderService;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     @GetMapping("/{orderId}")
@@ -32,6 +35,12 @@ public class OrderController {
     public List<OrderDto> findAll() {
         List<Order> orders = this.orderService.findAll();
         return orders.stream().map(OrderMapper::entityToDto).collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public OrderDto create(@RequestBody OrderDto orderDto) {
+        kafkaTemplate.send(ORDER_TOPIC, UUID.randomUUID().toString(), OrderMapper.dtoToEntity(orderDto));
+        return orderDto;
     }
 }
 
