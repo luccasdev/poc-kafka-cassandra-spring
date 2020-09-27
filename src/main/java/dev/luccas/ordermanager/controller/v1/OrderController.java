@@ -14,16 +14,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/order/v1")
 public class OrderController {
 
-
-    private static final String ORDER_TOPIC = "order";
-
     private final OrderService orderService;
 
-    private final KafkaTemplate<String, Order> kafkaTemplate;
 
-    public OrderController(OrderService orderService, KafkaTemplate<String, Order> kafkaTemplate) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.kafkaTemplate = kafkaTemplate;
     }
 
     @GetMapping("/{orderId}")
@@ -39,7 +34,7 @@ public class OrderController {
 
     @PostMapping
     public OrderDto create(@RequestBody OrderDto orderDto) {
-        kafkaTemplate.send(ORDER_TOPIC, UUID.randomUUID().toString(), OrderMapper.dtoToEntity(orderDto));
+        this.orderService.send(OrderMapper.dtoToEntity(orderDto));
         return orderDto;
     }
 }
