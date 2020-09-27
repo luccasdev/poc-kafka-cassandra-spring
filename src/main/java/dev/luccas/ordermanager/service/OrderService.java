@@ -1,12 +1,12 @@
 package dev.luccas.ordermanager.service;
 
+import dev.luccas.ordermanager.errors.CustomException;
 import dev.luccas.ordermanager.model.Order;
 import dev.luccas.ordermanager.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.UUID;
@@ -28,7 +28,7 @@ public class OrderService {
 
     public Order findById(UUID orderId) {
         return this.orderRepository.findById(orderId).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
+                () -> new CustomException("Order not found", HttpStatus.NOT_FOUND));
     }
 
 
