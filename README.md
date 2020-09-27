@@ -78,10 +78,12 @@ Content-Type: application/json
 
 [
     {
+        "id": "39d9a682-0ecb-41fd-b38c-3f2469a028d0",
         "title": "Big Mac",
         "description": "Lanche do McDonalds :)"
     },
     {
+        "id": "6a78e09b-5e86-4970-bc76-ecec06a95107",
         "title": "Milk Shake",
         "description": "Bem gelado!"
     }
