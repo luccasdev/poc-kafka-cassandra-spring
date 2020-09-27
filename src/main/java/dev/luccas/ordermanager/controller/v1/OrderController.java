@@ -1,9 +1,8 @@
 package dev.luccas.ordermanager.controller.v1;
 
 
-import dev.luccas.ordermanager.service.OrderService;
 import dev.luccas.ordermanager.model.Order;
-import org.springframework.kafka.core.KafkaTemplate;
+import dev.luccas.ordermanager.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

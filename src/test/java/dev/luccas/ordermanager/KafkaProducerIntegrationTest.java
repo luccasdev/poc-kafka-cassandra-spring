@@ -2,7 +2,6 @@ package dev.luccas.ordermanager;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.luccas.ordermanager.model.Order;
-import dev.luccas.ordermanager.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.producer.Producer;

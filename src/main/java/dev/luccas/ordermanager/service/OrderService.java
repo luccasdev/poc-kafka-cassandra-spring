@@ -1,6 +1,5 @@
 package dev.luccas.ordermanager.service;
 
-import dev.luccas.ordermanager.controller.v1.OrderMapper;
 import dev.luccas.ordermanager.model.Order;
 import dev.luccas.ordermanager.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
